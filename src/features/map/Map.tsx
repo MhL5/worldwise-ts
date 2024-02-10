@@ -1,9 +1,10 @@
-import { type FC } from "react";
+import { useState, type FC } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import Button from "./Button";
+import Button from "../../components/Button";
 import styled from "styled-components";
-import LocationMarker from "./LocationMarker";
-import "../styles/MapStyles.css";
+import "../../styles/MapStyles.css";
+import SetViewOnClick from "./SetViewOnClick";
+import Test from "./Test";
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,6 +18,8 @@ const ButtonContainer = styled.div`
 `;
 
 const Map: FC = function () {
+  const [useUserPosition, setUseUserPosition] = useState(false);
+
   return (
     <Wrapper>
       <MapContainer
@@ -29,10 +32,14 @@ const Map: FC = function () {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <SetViewOnClick animate={true} />
+
+        {/* <LocationMarker /> */}
+
+        {useUserPosition && <Test setUseUserPosition={setUseUserPosition} />}
 
         <ButtonContainer>
-          <Button el="button">
-            <LocationMarker />
+          <Button el="button" onClick={() => setUseUserPosition((p) => !p)}>
             USE YOUR POSITION
           </Button>
         </ButtonContainer>

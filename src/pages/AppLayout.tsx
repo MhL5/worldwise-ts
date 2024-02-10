@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import styled from "styled-components";
-import Map from "../components/Map";
+import Map from "../features/map/Map";
 import SideBar from "../components/SideBar";
 
 const PageContainer = styled.section`

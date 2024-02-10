@@ -5,7 +5,6 @@ export default function LocationMarker() {
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null
   );
-
   const map = useMapEvents({
     click() {
       map.locate();
