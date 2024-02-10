@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import styled from "styled-components";
 import "../../styles/MapStyles.css";
 import SetViewOnClick from "./SetViewOnClick";
-import Test from "./Test";
+import MoveToUserPosition from "./MoveToUserPosition";
 
 const Wrapper = styled.div`
   position: relative;
@@ -36,7 +36,9 @@ const Map: FC = function () {
 
         {/* <LocationMarker /> */}
 
-        {useUserPosition && <Test setUseUserPosition={setUseUserPosition} />}
+        {useUserPosition && (
+          <MoveToUserPosition setUseUserPosition={setUseUserPosition} />
+        )}
 
         <ButtonContainer>
           <Button el="button" onClick={() => setUseUserPosition((p) => !p)}>

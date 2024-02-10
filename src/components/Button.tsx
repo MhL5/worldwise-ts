@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ReactNode, type FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const stylesString = `
@@ -15,7 +15,7 @@ const stylesString = `
   transition: 300ms;
 
   &.active {
-    color: var(--color-dark--0) !important;
+    color: var(--color-dark--0);
   }
 
   &:hover,
@@ -28,6 +28,15 @@ const StyledButton = styled.button`
 const StyledLink = styled(Link)`
   ${stylesString}
 `;
+const StyledNavLink = styled(NavLink)`
+  ${stylesString}
+  color: var(--color-light--2);
+
+  &.active {
+    background-color: var(--color-dark--0);
+    color: var(--color-light--2);
+  }
+`;
 
 type Button = {
   el: "button";
@@ -35,16 +44,21 @@ type Button = {
   children: ReactNode;
 } & ComponentPropsWithoutRef<"button">;
 
-type Anchor = {
-  el: "a";
+type Link = {
+  el: "link";
+  to: string;
+  children: ReactNode;
+} & ComponentPropsWithoutRef<"a">;
+type NavLink = {
+  el: "NavLink";
   to: string;
   children: ReactNode;
 } & ComponentPropsWithoutRef<"a">;
 
-type ButtonType = Button | Anchor;
+type ButtonType = Button | Link | NavLink;
 
 const Button: FC<ButtonType> = function (props) {
-  if (props.el === "a") {
+  if (props.el === "link") {
     // el can cause react console errors in DOM so we have to destructure it
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { el, to, ...otherProps } = props;
@@ -53,6 +67,18 @@ const Button: FC<ButtonType> = function (props) {
       <StyledLink to={to} {...otherProps}>
         {props.children}
       </StyledLink>
+    );
+  }
+
+  if (props.el === "NavLink") {
+    // el can cause react console errors in DOM so we have to destructure it
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { el, to, ...otherProps } = props;
+
+    return (
+      <StyledNavLink to={to} {...otherProps}>
+        {props.children}
+      </StyledNavLink>
     );
   }
 

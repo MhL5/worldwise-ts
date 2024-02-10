@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const StyledNav = styled.nav`
   padding: 2rem;
@@ -50,7 +51,9 @@ const PageNav: FC = function () {
     <StyledNav>
       <StyledUList>
         <ApplicationList>
-          <StyleNavLink to="/">🌍 WorldWise</StyleNavLink>
+          <StyleNavLink to="/">
+            <Logo /> WorldWise
+          </StyleNavLink>
         </ApplicationList>
         <li>
           <StyleNavLink to="/pricing">pricing</StyleNavLink>

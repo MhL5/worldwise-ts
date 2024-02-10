@@ -2,7 +2,7 @@ import { useEffect, type FC, Dispatch, SetStateAction } from "react";
 import { useMap } from "react-leaflet";
 import { useGeolocation } from "../../hooks/useGeolocation";
 
-const Test: FC<{
+const MoveToUserPosition: FC<{
   setUseUserPosition: Dispatch<SetStateAction<boolean>>;
 }> = function ({ setUseUserPosition }) {
   const map = useMap();
@@ -18,4 +18,4 @@ const Test: FC<{
   return null;
 };
 
-export default Test;
+export default MoveToUserPosition;
