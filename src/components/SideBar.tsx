@@ -11,16 +11,32 @@ const StyledSideBar = styled.aside`
   gap: 2rem;
   background-color: var(--color-dark--1) !important;
 
-  & > i {
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     margin-top: 3rem;
-    font-size: 8rem;
+    margin-inline: auto;
+
+    font-size: 2.5rem;
+
+    > h2,
+    i {
+      margin: 1rem;
+    }
+    > i {
+      font-size: 6rem;
+    }
   }
 `;
 // Cities Countries Forms
 const SideBar: FC = function () {
   return (
     <StyledSideBar>
-      <Logo />
+      <div>
+        <Logo /> <h2> WorldWise</h2>
+      </div>
       <SideBarNavigation />
 
       <Outlet />

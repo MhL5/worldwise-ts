@@ -48,7 +48,9 @@ const HomePage: FC = function () {
           you have wandered the world.
         </p>
 
-        <Button to="/application">START TRACKING</Button>
+        <Button el="link" to="/application">
+          START TRACKING
+        </Button>
       </ParagraphWrapper>
     </MainContainer>
   );
