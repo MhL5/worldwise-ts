@@ -12,19 +12,21 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
-import Cities from "./components/Cities";
+import Cities, { citiesLoader } from "./components/Cities";
 import Countries from "./components/Countries";
-import Form from "./components/Form";
+import MapForm, { formAction } from "./features/map/components/MapForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
       <Route path="/" element={<HomePage />} />
+
       <Route path="application" element={<AppLayout />}>
-        <Route path="cities" element={<Cities />} />
+        <Route path="cities" index element={<Cities />} loader={citiesLoader} />
         <Route path="countries" element={<Countries />} />
-        <Route path="form" element={<Form />} />
+        <Route path="form" element={<MapForm />} action={formAction} />
       </Route>
+
       <Route path="login" element={<Login />} />
       <Route path="pricing" element={<Pricing />} />
       <Route path="product" element={<Product />} />

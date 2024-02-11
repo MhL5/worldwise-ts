@@ -51,9 +51,7 @@ const PageNav: FC = function () {
     <StyledNav>
       <StyledUList>
         <ApplicationList>
-          <StyleNavLink to="/">
-            <Logo /> WorldWise
-          </StyleNavLink>
+          <Logo>WorldWise</Logo>
         </ApplicationList>
         <li>
           <StyleNavLink to="/pricing">pricing</StyleNavLink>
