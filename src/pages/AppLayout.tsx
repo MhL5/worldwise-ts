@@ -2,7 +2,6 @@ import { type FC } from "react";
 import styled from "styled-components";
 import Map from "../features/map/components/Map";
 import SideBar from "../components/SideBar";
-import CitiesProvider from "../features/map/context/CitiesContext";
 
 const PageContainer = styled.section`
   min-height: 100dvh;
@@ -19,10 +18,8 @@ const PageContainer = styled.section`
 const AppLayout: FC = function () {
   return (
     <PageContainer>
-      <CitiesProvider>
-        <SideBar />
-        <Map />
-      </CitiesProvider>
+      <SideBar />
+      <Map />
     </PageContainer>
   );
 };

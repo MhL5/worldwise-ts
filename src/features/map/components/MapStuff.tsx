@@ -14,6 +14,40 @@ const ButtonContainer = styled.div`
   transform: translate(-50%, -5%);
   z-index: 1000;
 `;
+const StyledPopup = styled(Popup)`
+  .leaflet-popup-content-wrapper {
+    min-width: 10rem;
+    font-size: medium;
+    position: relative;
+    height: 5rem;
+    text-align: center;
+
+    background-color: var(--color-dark--1);
+    border-radius: 0.5rem;
+
+    & > div {
+      color: white;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-brand--2);
+      width: 0.5rem;
+      height: 5rem;
+      border-radius: 0.5rem;
+
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+  }
+  .leaflet-popup-tip-container {
+    .leaflet-popup-tip {
+      background-color: var(--color-dark--1);
+    }
+  }
+`;
 
 const MapStuff: FC = function () {
   const { state } = useCitiesContext();
@@ -45,7 +79,7 @@ const MapStuff: FC = function () {
 
       {positions?.map((position) => (
         <Marker position={position.position} key={Math.random() * 4945632}>
-          <Popup>{position.note}</Popup>
+          <StyledPopup>{position.note}</StyledPopup>
         </Marker>
       ))}
 
