@@ -1,32 +1,31 @@
-import axios from "axios";
 import { type FC } from "react";
 import { useLoaderData } from "react-router-dom";
+import { getCities } from "../services/getCities";
+import { City } from "../services/postCities";
 
 const Cities: FC = function () {
-  const data = useLoaderData() as CitiesData;
+  const data = useLoaderData() as City[];
 
   return (
     <h1>
-      {data[0].cityName}
+      {data?.map((d) => (
+        <div key={d.id}>{d.cityName}</div>
+      ))}
       {/* A component with Country name / city name / date and a delete button  */}
     </h1>
   );
 };
 
-type CitiesData = {
-  cityName: string;
-  country: string;
-  emoji: string;
-  date: string;
-  notes: string;
-  position: { lat: number; lng: number };
-  id: string;
-}[];
-
 async function citiesLoader() {
-  const data = await axios.get<CitiesData>("http://localhost:3000/cities");
+  try {
+    const citiesData = await getCities();
+    return citiesData;
+  } catch (err) {
+    if (err instanceof Error)
+      throw new Error(`Something went wrong ${err.message}`);
 
-  return data.data;
+    throw new Error("Unknown error while trying to fetch data!😥");
+  }
 }
 
 export default Cities;

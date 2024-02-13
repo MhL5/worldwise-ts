@@ -1,10 +1,11 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import Button from "../../../components/Button";
 import { Marker, Popup, TileLayer, useMapEvents } from "react-leaflet";
 import styled from "styled-components";
 import useMoveToUserPosition from "../hooks/useMoveToUserPosition";
 import { useNavigate } from "react-router-dom";
-// import useSetViewOnClick from "../hooks/useSetViewOnClick";
+import useSetViewOnClick from "../hooks/useSetViewOnClick";
+import { useCitiesContext } from "../context/CitiesContext";
 
 const ButtonContainer = styled.div`
   position: absolute !important;
@@ -15,9 +16,20 @@ const ButtonContainer = styled.div`
 `;
 
 const MapStuff: FC = function () {
+  const { state } = useCitiesContext();
   const { error, isLoading, goToUserPosition } = useMoveToUserPosition();
-  // useSetViewOnClick({ animate: true });
-  const { positions } = useLocationMarker();
+  const navigate = useNavigate();
+  useSetViewOnClick({ animate: true });
+  useMapEvents({
+    click(e) {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+    },
+  });
+
+  const positions = state.cities.map((c) => ({
+    position: c.position,
+    note: c.note,
+  }));
 
   let status;
   status = `USE YOUR POSITION`;
@@ -32,8 +44,8 @@ const MapStuff: FC = function () {
       />
 
       {positions?.map((position) => (
-        <Marker position={position} key={position.lat}>
-          <Popup>You are here</Popup>
+        <Marker position={position.position} key={Math.random() * 4945632}>
+          <Popup>{position.note}</Popup>
         </Marker>
       ))}
 
@@ -49,21 +61,3 @@ const MapStuff: FC = function () {
 };
 
 export default MapStuff;
-
-function useLocationMarker() {
-  const navigate = useNavigate();
-  // it should open a form
-  // city name / date / note
-  const [positions, setPositions] = useState<{ lat: number; lng: number }[]>(
-    []
-  );
-
-  useMapEvents({
-    click(e) {
-      setPositions((p) => [...p, e.latlng]);
-      navigate("form");
-    },
-  });
-
-  return { positions };
-}

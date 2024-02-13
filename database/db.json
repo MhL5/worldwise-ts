@@ -1,20 +1,52 @@
 {
   "cities": [
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
+      "id": "2008.68063157875",
+      "cityName": "London",
+      "date": "2/13/2024",
+      "note": "test",
+      "country": "England",
+      "emoji": "GB",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
+        "lat": 51.5058576545476,
+        "lng": -0.10193951036934436
+      }
     },
     {
-      "id": "439f",
-      "test": "test"
+      "id": "4632.953959080719",
+      "cityName": "Cedillo del Condado",
+      "date": "2/13/2024",
+      "note": "test",
+      "country": "Castilla-La Mancha",
+      "emoji": "ES",
+      "position": {
+        "lat": 40.06125658140474,
+        "lng": -3.950319910026488
+      }
+    },
+    {
+      "id": "1057.5998955197263",
+      "cityName": "Quezac",
+      "date": "2/13/2024",
+      "note": "FFFFFFFFFFFFFFFFFFF",
+      "country": "Auvergne-Rhone-Alpes",
+      "emoji": "FR",
+      "position": {
+        "lat": 44.77793589631623,
+        "lng": 2.1981195882357256
+      }
+    },
+    {
+      "id": "1310.4301218736791",
+      "cityName": "Dryanovo",
+      "date": "2/13/2024",
+      "note": "sad",
+      "country": "Gabrovo",
+      "emoji": "BG",
+      "position": {
+        "lat": 42.98857645832184,
+        "lng": 25.510704102973023
+      }
     }
   ]
 }

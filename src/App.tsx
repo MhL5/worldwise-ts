@@ -14,7 +14,7 @@ import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
 import Cities, { citiesLoader } from "./components/Cities";
 import Countries from "./components/Countries";
-import MapForm, { formAction } from "./features/map/components/MapForm";
+import MapForm, { formLoader } from "./features/map/components/MapForm";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
       <Route path="application" element={<AppLayout />}>
         <Route path="cities" index element={<Cities />} loader={citiesLoader} />
         <Route path="countries" element={<Countries />} />
-        <Route path="form" element={<MapForm />} action={formAction} />
+        <Route path="form" element={<MapForm />} loader={formLoader} />C
       </Route>
 
       <Route path="login" element={<Login />} />
