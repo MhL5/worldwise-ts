@@ -8,10 +8,12 @@ import {
 } from "react";
 import { City } from "../../../services/postCities";
 import { getCities } from "../../../services/getCities";
+import { deleteCityApi } from "../../../services/deleteCity";
 
 type CitiesContextType = {
   dispatch: Dispatch<Action>;
   state: typeof initialState;
+  deleteCity: (id: string) => void;
 };
 
 type CitiesProviderType = ({
@@ -49,16 +51,22 @@ const CitiesContext = createContext<CitiesContextType | null>(null);
 const CitiesProvider: CitiesProviderType = function ({ children }) {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
+  async function deleteCity(id: string) {
+    await deleteCityApi(id);
+    getCitiesFn();
+  }
+
+  async function getCitiesFn() {
+    const cities = await getCities();
+    dispatch({ type: "updateCities", payload: cities });
+  }
+
   useEffect(() => {
-    async function getCitiesFn() {
-      const cities = await getCities();
-      dispatch({ type: "updateCities", payload: cities });
-    }
     getCitiesFn();
   }, []);
 
   return (
-    <CitiesContext.Provider value={{ dispatch, state }}>
+    <CitiesContext.Provider value={{ deleteCity, dispatch, state }}>
       {children}
     </CitiesContext.Provider>
   );
