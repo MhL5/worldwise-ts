@@ -32,8 +32,9 @@ const StyledLi = styled.li`
 
     border-radius: 999px;
 
-    & > div {
-      color: rgba(255, 26, 9, 0.877);
+    &:hover {
+      background-color: var(--color-brand--1);
+      color: var(--color-dark--2);
     }
   }
 
@@ -61,7 +62,8 @@ type CityParams = {
 const City: FC<CityParams> = function ({ city }) {
   const { deleteCity } = useCitiesContext();
 
-  function handleDelete() {
+  function handleDelete(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
     deleteCity(city.id);
   }
 

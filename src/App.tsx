@@ -32,7 +32,7 @@ const router = createBrowserRouter(
           loader={cityInfoLoader}
         />
         <Route path="countries" element={<Countries />} />
-        <Route path="form" element={<MapForm />} loader={formLoader} />C
+        <Route path="form" element={<MapForm />} loader={formLoader} />
       </Route>
 
       <Route path="login" element={<Login />} />
