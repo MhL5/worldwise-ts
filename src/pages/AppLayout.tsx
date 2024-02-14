@@ -2,6 +2,7 @@ import { type FC } from "react";
 import styled from "styled-components";
 import Map from "../features/map/components/Map";
 import SideBar from "../components/SideBar";
+import { redirect } from "react-router-dom";
 
 const PageContainer = styled.section`
   min-height: 100dvh;
@@ -24,4 +25,13 @@ const AppLayout: FC = function () {
   );
 };
 
+function appLoader() {
+  const loginStatus = localStorage.getItem("login");
+
+  if (loginStatus === "false" || !loginStatus) return redirect("/login");
+  return null;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export { appLoader };
 export default AppLayout;

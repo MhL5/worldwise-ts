@@ -3,6 +3,7 @@ import PageNav from "../components/PageNav";
 import Button from "../components/Button";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const PageContainer = styled.div`
   min-height: 100dvh;
@@ -39,9 +40,11 @@ const InputBox = styled.div`
 
 const Login: FC = function () {
   const navigate = useNavigate();
+  const [, setLogin] = useLocalStorage({ initialState: false, key: `login` });
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    setLogin(true);
 
     navigate("/application");
   }

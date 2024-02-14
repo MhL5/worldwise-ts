@@ -2,6 +2,7 @@ import { type FC } from "react";
 import styled from "styled-components";
 import { City } from "../services/postCities";
 import { useCitiesContext } from "../context/CitiesContext";
+import { NavLink } from "react-router-dom";
 
 const StyledLi = styled.li`
   display: flex;
@@ -65,15 +66,17 @@ const City: FC<CityParams> = function ({ city }) {
   }
 
   return (
-    <StyledLi key={city.id}>
-      <div>{city.emoji}</div>
-      <div>{city.cityName}</div>
-      <div>{city.date}</div>
-      <button onClick={handleDelete}>
-        <div>X</div>
-      </button>
-      <div></div>
-    </StyledLi>
+    <NavLink to={`/application/cities/${city.id}`}>
+      <StyledLi key={city.id}>
+        <div>{city.emoji}</div>
+        <div>{city.cityName}</div>
+        <div>{city.date}</div>
+        <button onClick={handleDelete}>
+          <div>X</div>
+        </button>
+        <div></div>
+      </StyledLi>
+    </NavLink>
   );
 };
 
