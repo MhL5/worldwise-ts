@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import styled from "styled-components";
 import { City } from "../services/postCities";
-import { useCitiesContext } from "../features/map/context/CitiesContext";
+import { useCitiesContext } from "../context/CitiesContext";
 
 const StyledLi = styled.li`
   display: flex;

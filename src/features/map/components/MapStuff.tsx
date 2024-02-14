@@ -5,7 +5,7 @@ import styled from "styled-components";
 import useMoveToUserPosition from "../hooks/useMoveToUserPosition";
 import { useNavigate } from "react-router-dom";
 import useSetViewOnClick from "../hooks/useSetViewOnClick";
-import { useCitiesContext } from "../context/CitiesContext";
+import { useCitiesContext } from "../../../context/CitiesContext";
 
 const ButtonContainer = styled.div`
   position: absolute !important;

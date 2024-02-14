@@ -33,7 +33,7 @@ const ParagraphWrapper = styled.div`
     font-size: 2rem;
   }
 `;
-//  TODO : start tracking btn should go to login if user is not logged in
+
 const HomePage: FC = function () {
   return (
     <MainContainer>

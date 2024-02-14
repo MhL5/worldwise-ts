@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { useCitiesContext } from "../features/map/context/CitiesContext";
+import { useCitiesContext } from "../context/CitiesContext";
 import styled from "styled-components";
 
 const StyledUl = styled.ul`

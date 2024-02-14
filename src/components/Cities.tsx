@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { useCitiesContext } from "../features/map/context/CitiesContext";
+import { useCitiesContext } from "../context/CitiesContext";
 import City from "./City";
 
 const Cities: FC = function () {

@@ -6,9 +6,9 @@ import {
   useEffect,
   useReducer,
 } from "react";
-import { City } from "../../../services/postCities";
-import { getCities } from "../../../services/getCities";
-import { deleteCityApi } from "../../../services/deleteCity";
+import { City } from "../services/postCities";
+import { getCities } from "../services/getCities";
+import { deleteCityApi } from "../services/deleteCity";
 
 type CitiesContextType = {
   dispatch: Dispatch<Action>;

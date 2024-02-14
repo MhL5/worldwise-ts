@@ -10,7 +10,7 @@ import { postCities } from "../../../services/postCities";
 
 import Button from "../../../components/Button";
 import ReactDatePicker from "react-datepicker";
-import { useCitiesContext } from "../context/CitiesContext";
+import { useCitiesContext } from "../../../context/CitiesContext";
 
 type FormDataObj = {
   hiddenData: string;

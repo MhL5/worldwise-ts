@@ -9,7 +9,10 @@ const StyledLink = styled(Link)`
 const Logo: FC<PropsWithChildren> = function ({ children }) {
   return (
     <i>
-      <StyledLink to="/">🌍 {children} </StyledLink>
+      <StyledLink to="/">
+        🌍
+        {children}
+      </StyledLink>
     </i>
   );
 };
