@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server ./database/db.json"
+    "server": "json-server ./data/db.json"
   },
   "dependencies": {
     "@types/react-datepicker": "^4.19.6",
