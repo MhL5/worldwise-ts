@@ -3,7 +3,7 @@ import { type FC } from "react";
 import { MapContainer } from "react-leaflet";
 import styled from "styled-components";
 
-import MapStuff from "./MapManager";
+import MapManager from "./MapManager";
 
 const Wrapper = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ const Map: FC = function () {
         scrollWheelZoom={true}
         style={{ height: `100%` }}
       >
-        <MapStuff />
+        <MapManager />
       </MapContainer>
     </Wrapper>
   );
