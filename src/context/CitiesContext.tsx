@@ -1,15 +1,18 @@
 import {
-  Dispatch,
-  ReactNode,
+  type Dispatch,
+  type ReactNode,
   createContext,
   useContext,
   useEffect,
   useReducer,
 } from "react";
-import { City } from "../services/postCities";
+import { type City } from "../services/postCities";
 import { getCities } from "../services/getCities";
 import { deleteCityApi } from "../services/deleteCity";
 
+// Types
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 type CitiesContextType = {
   dispatch: Dispatch<Action>;
   state: typeof initialState;
@@ -29,6 +32,8 @@ type ReducerFn = (
 ) => typeof initialState;
 
 // Reducer
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 const initialState: { cities: City[] } = {
   cities: [],
 };
@@ -79,6 +84,6 @@ function useCitiesContext() {
   return context;
 }
 
-export default CitiesProvider;
 // eslint-disable-next-line react-refresh/only-export-components
 export { useCitiesContext };
+export default CitiesProvider;

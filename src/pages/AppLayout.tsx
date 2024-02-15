@@ -1,8 +1,9 @@
 import { type FC } from "react";
-import styled from "styled-components";
-import Map from "../features/map/components/Map";
-import SideBar from "../components/SideBar";
 import { redirect } from "react-router-dom";
+import styled from "styled-components";
+
+import Map from "../features/map/components/Map";
+import SideBar from "../ui/SideBar";
 
 const PageContainer = styled.section`
   min-height: 100dvh;

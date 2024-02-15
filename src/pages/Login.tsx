@@ -1,9 +1,10 @@
-import { FormEvent, type FC } from "react";
-import PageNav from "../components/PageNav";
-import Button from "../components/Button";
-import styled from "styled-components";
+import { type FormEvent, type FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import styled from "styled-components";
+
+import PageNav from "../ui/PageNav";
+import Button from "../ui/Button";
 
 const PageContainer = styled.div`
   min-height: 100dvh;
