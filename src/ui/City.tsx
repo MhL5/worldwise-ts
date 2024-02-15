@@ -1,8 +1,8 @@
 import { type FC } from "react";
-import styled from "styled-components";
-import { City } from "../services/postCities";
+import { type City } from "../services/postCities";
 import { useCitiesContext } from "../context/CitiesContext";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const StyledLi = styled.li`
   display: flex;

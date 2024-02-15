@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode, type FC } from "react";
+import { type ComponentPropsWithoutRef, type ReactNode, type FC } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -49,6 +49,7 @@ type Link = {
   to: string;
   children: ReactNode;
 } & ComponentPropsWithoutRef<"a">;
+
 type NavLink = {
   el: "NavLink";
   to: string;

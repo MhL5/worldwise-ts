@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { getCity } from "../services/getCity";
 import { Params, useLoaderData, useNavigate } from "react-router-dom";
 import { City } from "../services/postCities";
+
 import Button from "./Button";
 import styled from "styled-components";
 
