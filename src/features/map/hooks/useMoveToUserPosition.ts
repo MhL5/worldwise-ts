@@ -23,4 +23,4 @@ const useMoveToUserPosition = function () {
   return { goToUserPosition, isLoading, error };
 };
 
-export default useMoveToUserPosition;
+export  {useMoveToUserPosition};

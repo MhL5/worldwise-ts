@@ -1,11 +1,13 @@
 import { type FC } from "react";
-import Button from "../../../components/Button";
 import { Marker, Popup, TileLayer, useMapEvents } from "react-leaflet";
-import styled from "styled-components";
-import useMoveToUserPosition from "../hooks/useMoveToUserPosition";
 import { useNavigate } from "react-router-dom";
-import useSetViewOnClick from "../hooks/useSetViewOnClick";
 import { useCitiesContext } from "../../../context/CitiesContext";
+import styled from "styled-components";
+
+import { useSetViewOnClick } from "../hooks/useSetViewOnClick";
+import { useMoveToUserPosition } from "../hooks/useMoveToUserPosition";
+
+import Button from "../../../ui/Button";
 
 const ButtonContainer = styled.div`
   position: absolute !important;
@@ -49,7 +51,7 @@ const StyledPopup = styled(Popup)`
   }
 `;
 
-const MapStuff: FC = function () {
+const MapManager: FC = function () {
   const { state } = useCitiesContext();
   const { error, isLoading, goToUserPosition } = useMoveToUserPosition();
   const navigate = useNavigate();
@@ -94,4 +96,4 @@ const MapStuff: FC = function () {
   );
 };
 
-export default MapStuff;
+export default MapManager;

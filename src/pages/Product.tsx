@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import PageNav from "../components/PageNav";
+import PageNav from "../ui/PageNav";
 import styled from "styled-components";
 
 const Container = styled.div`

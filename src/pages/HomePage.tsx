@@ -1,7 +1,8 @@
 import { type FC } from "react";
-import PageNav from "../components/PageNav";
 import styled from "styled-components";
-import Button from "../components/Button";
+
+import PageNav from "../ui/PageNav";
+import Button from "../ui/Button";
 
 const MainContainer = styled.div`
   display: flex;

@@ -1,8 +1,9 @@
+import "../../../styles/MapStyles.css";
 import { type FC } from "react";
 import { MapContainer } from "react-leaflet";
 import styled from "styled-components";
-import "../../../styles/MapStyles.css";
-import MapStuff from "./MapStuff";
+
+import MapStuff from "./MapManager";
 
 const Wrapper = styled.div`
   position: relative;

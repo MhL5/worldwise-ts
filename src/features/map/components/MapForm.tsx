@@ -1,16 +1,16 @@
+import "react-datepicker/dist/react-datepicker.css";
 import { useState, type FC, useEffect, FormEvent } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import "react-datepicker/dist/react-datepicker.css";
 import {
   getPositionData,
   receivedLocationData,
 } from "../../../services/getPosition";
 import { postCities } from "../../../services/postCities";
-
-import Button from "../../../components/Button";
-import ReactDatePicker from "react-datepicker";
 import { useCitiesContext } from "../../../context/CitiesContext";
+
+import Button from "../../../ui/Button";
+import ReactDatePicker from "react-datepicker";
 
 type FormDataObj = {
   hiddenData: string;
@@ -24,7 +24,7 @@ type HiddenData = {
   position: { lat: number; lng: number };
 };
 
-const StyledReactRouterForm = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: var(--color-dark--2);
@@ -153,7 +153,7 @@ const MapForm: FC = function () {
   }, [data]);
 
   return (
-    <StyledReactRouterForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="cityNameInput">City name</label>
       <input
         type="text"
@@ -183,7 +183,7 @@ const MapForm: FC = function () {
           ⬅️ Back
         </StyledBackButton>
       </div>
-    </StyledReactRouterForm>
+    </StyledForm>
   );
 };
 
@@ -203,6 +203,6 @@ async function formLoader({ request }: { request: Request }) {
   }
 }
 
-export default MapForm;
 // eslint-disable-next-line react-refresh/only-export-components
 export { formLoader };
+export default MapForm;
